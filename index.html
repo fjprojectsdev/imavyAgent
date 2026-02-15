@@ -296,67 +296,158 @@
       </div>
     </section>
 
-    <section id="dashboard" class="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 px-6 py-16 lg:grid-cols-2 lg:items-center">
-      <div class="card overflow-hidden rounded-[24px] p-4">
-        <div class="rounded-2xl border border-white/10 bg-black/35 p-4">
-          <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
-            <div>
-              <p class="text-xs uppercase tracking-[0.14em] text-gray-400">Painel de Grupos</p>
-              <p class="text-sm font-semibold text-white">Controle por comunidade</p>
-            </div>
-            <span class="rounded-lg bg-blue-500/20 px-3 py-1 text-xs font-semibold text-blue-300">Dashboard completo</span>
-          </div>
-
-          <div class="grid grid-cols-3 gap-3">
-            <div class="rounded-xl border border-white/10 bg-white/5 p-3 text-center">
-              <p class="text-xs text-gray-400">Grupos</p>
-              <p class="text-xl font-bold text-white">5</p>
-            </div>
-            <div class="rounded-xl border border-white/10 bg-white/5 p-3 text-center">
-              <p class="text-xs text-gray-400">Filtros ativos</p>
-              <p class="text-xl font-bold text-white">29</p>
-            </div>
-            <div class="rounded-xl border border-white/10 bg-white/5 p-3 text-center">
-              <p class="text-xs text-gray-400">Alertas hoje</p>
-              <p class="text-xl font-bold text-white">17</p>
-            </div>
-          </div>
-
-          <div class="mt-4 overflow-hidden rounded-xl border border-white/10">
-            <table class="w-full text-left text-sm">
-              <thead class="bg-white/5 text-gray-300">
-                <tr>
-                  <th class="px-3 py-2">Grupo</th>
-                  <th class="px-3 py-2">Status</th>
-                  <th class="px-3 py-2">Ação</th>
-                </tr>
-              </thead>
-              <tbody class="text-gray-200">
-                <tr class="border-t border-white/10">
-                  <td class="px-3 py-2">Mentoria Premium</td>
-                  <td class="px-3 py-2 text-emerald-300">Protegido</td>
-                  <td class="px-3 py-2">Filtros e lembretes ativos</td>
-                </tr>
-                <tr class="border-t border-white/10">
-                  <td class="px-3 py-2">Comunidade Web3</td>
-                  <td class="px-3 py-2 text-emerald-300">Protegido</td>
-                  <td class="px-3 py-2">Comandos cripto em uso</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+    <section id="dashboard" class="mx-auto w-full max-w-7xl px-6 py-16">
+      <div class="mb-10 text-center">
+        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-indigo-300">Dashboard de Grupos</p>
+        <h2 class="section-title mt-3 text-3xl font-bold text-white md:text-4xl">Exemplos reais de análise e performance da comunidade</h2>
       </div>
 
-      <div>
-        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-indigo-300">Dashboard de Grupos</p>
-        <h2 class="section-title mt-3 text-3xl font-bold text-white md:text-4xl">Operação organizada, segura e previsível</h2>
-        <ul class="mt-6 space-y-3 text-sm text-gray-300">
-          <li class="flex gap-3"><i class="fa-solid fa-circle-check mt-0.5 text-emerald-300"></i><span>Painel central para gerenciar configurações e permissões.</span></li>
-          <li class="flex gap-3"><i class="fa-solid fa-circle-check mt-0.5 text-emerald-300"></i><span>Controle de comandos e filtros por grupo sem esforço manual.</span></li>
-          <li class="flex gap-3"><i class="fa-solid fa-circle-check mt-0.5 text-emerald-300"></i><span>Visualização básica de atividade para tomada de decisão rápida.</span></li>
-          <li class="flex gap-3"><i class="fa-solid fa-circle-check mt-0.5 text-emerald-300"></i><span>Mais consistência operacional para comunidades pagas e mentorias.</span></li>
-        </ul>
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div class="card overflow-hidden rounded-[24px] p-5">
+          <p class="text-sm text-gray-300">Fonte: <span class="font-semibold text-blue-300">Supabase Realtime</span> | Realtime: <span class="font-semibold text-emerald-300">Online</span></p>
+
+          <div class="mt-4 rounded-2xl border border-yellow-300/30 bg-yellow-500/10 p-5">
+            <p class="text-xs font-semibold uppercase tracking-[0.14em] text-yellow-200">Top 1</p>
+            <h3 class="mt-2 text-4xl font-bold text-white">Victor Lacôrte</h3>
+            <p class="mt-1 text-lg text-yellow-100">🏆 Elite com 9.09% de participação.</p>
+            <div class="mt-4 rounded-xl border border-white/15 bg-white/5 p-4 text-base text-gray-100">
+              <p><span class="font-semibold text-white">63</span> mensagens</p>
+              <p><span class="font-semibold text-white">45.45</span> score de engajamento</p>
+              <p>Se o ritmo continuar, Victor Lacôrte fechará o mês com <span class="font-semibold text-white">882 mensagens</span>.</p>
+            </div>
+          </div>
+
+          <div class="mt-4 grid grid-cols-2 gap-3 md:grid-cols-3">
+            <div class="rounded-xl border border-white/10 bg-white/5 p-3">
+              <p class="text-xs text-gray-400">Total geral</p>
+              <p class="text-3xl font-bold text-white">693</p>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-white/5 p-3">
+              <p class="text-xs text-gray-400">Participantes</p>
+              <p class="text-3xl font-bold text-white">65</p>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-white/5 p-3">
+              <p class="text-xs text-gray-400">Média por participante</p>
+              <p class="text-3xl font-bold text-white">10.66</p>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-white/5 p-3">
+              <p class="text-xs text-gray-400">Índice de concentração (Top 3)</p>
+              <p class="text-3xl font-bold text-white">22.66%</p>
+              <p class="text-xs text-emerald-300">Saudável</p>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-white/5 p-3">
+              <p class="text-xs text-gray-400">Score médio de engajamento</p>
+              <p class="text-3xl font-bold text-white">37.04</p>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-white/5 p-3">
+              <p class="text-xs text-gray-400">Participantes em risco</p>
+              <p class="text-3xl font-bold text-white">20</p>
+            </div>
+          </div>
+
+          <div class="mt-4 rounded-2xl border border-white/10 bg-white/5 p-5">
+            <h4 class="text-3xl font-semibold text-white">Insights Base</h4>
+            <ul class="mt-3 list-disc space-y-2 pl-6 text-lg text-gray-200">
+              <li>Victor Lacôrte lidera com 9.09% das mensagens.</li>
+              <li>Top 3 concentram 22.66% da participação.</li>
+              <li>Victor Lacôrte teve maior crescimento no período (+425%).</li>
+              <li>Dario teve maior queda no período (-30.43%).</li>
+              <li>20 participantes enviaram apenas 1 mensagem.</li>
+              <li>A média geral foi de 10.66 mensagens por participante.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <div class="card overflow-hidden rounded-[24px] p-5">
+            <h4 class="text-4xl font-semibold text-white">Top 15</h4>
+            <div class="mt-4 overflow-x-auto rounded-xl border border-white/10">
+              <table class="min-w-full text-left text-sm">
+                <thead class="bg-white/5 text-gray-300">
+                  <tr>
+                    <th class="px-3 py-2">Posição</th>
+                    <th class="px-3 py-2">Nome</th>
+                    <th class="px-3 py-2">Nível</th>
+                    <th class="px-3 py-2">Total</th>
+                    <th class="px-3 py-2">Participação</th>
+                    <th class="px-3 py-2">Score</th>
+                    <th class="px-3 py-2">Crescimento</th>
+                  </tr>
+                </thead>
+                <tbody class="text-gray-100">
+                  <tr class="border-t border-white/10">
+                    <td class="px-3 py-2">1</td>
+                    <td class="px-3 py-2 font-medium">Victor Lacôrte</td>
+                    <td class="px-3 py-2">🏆 Elite</td>
+                    <td class="px-3 py-2 font-semibold">63</td>
+                    <td class="px-3 py-2">9.10%</td>
+                    <td class="px-3 py-2 font-semibold">45.46</td>
+                    <td class="px-3 py-2 text-emerald-300">▲ +425.00% (abs 51)</td>
+                  </tr>
+                  <tr class="border-t border-white/10">
+                    <td class="px-3 py-2">2</td>
+                    <td class="px-3 py-2 font-medium">Dario</td>
+                    <td class="px-3 py-2">🏆 Elite</td>
+                    <td class="px-3 py-2 font-semibold">48</td>
+                    <td class="px-3 py-2">6.94%</td>
+                    <td class="px-3 py-2 font-semibold">18.08</td>
+                    <td class="px-3 py-2 text-red-300">▼ -30.43% (abs -21)</td>
+                  </tr>
+                  <tr class="border-t border-white/10">
+                    <td class="px-3 py-2">3</td>
+                    <td class="px-3 py-2 font-medium">Lourival</td>
+                    <td class="px-3 py-2">🏆 Elite</td>
+                    <td class="px-3 py-2 font-semibold">46</td>
+                    <td class="px-3 py-2">6.65%</td>
+                    <td class="px-3 py-2 font-semibold">43.99</td>
+                    <td class="px-3 py-2 text-emerald-300">▲ +100.00% (abs 46)</td>
+                  </tr>
+                  <tr class="border-t border-white/10">
+                    <td class="px-3 py-2">4</td>
+                    <td class="px-3 py-2 font-medium">Alexandre Santos</td>
+                    <td class="px-3 py-2">🏆 Elite</td>
+                    <td class="px-3 py-2 font-semibold">41</td>
+                    <td class="px-3 py-2">5.92%</td>
+                    <td class="px-3 py-2 font-semibold">43.55</td>
+                    <td class="px-3 py-2 text-emerald-300">▲ +1266.67% (abs 38)</td>
+                  </tr>
+                  <tr class="border-t border-white/10">
+                    <td class="px-3 py-2">5</td>
+                    <td class="px-3 py-2 font-medium">Lucas Breno</td>
+                    <td class="px-3 py-2">🏆 Elite</td>
+                    <td class="px-3 py-2 font-semibold">38</td>
+                    <td class="px-3 py-2">5.49%</td>
+                    <td class="px-3 py-2 font-semibold">43.29</td>
+                    <td class="px-3 py-2 text-emerald-300">▲ +100.00% (abs 38)</td>
+                  </tr>
+                  <tr class="border-t border-white/10">
+                    <td class="px-3 py-2">6</td>
+                    <td class="px-3 py-2 font-medium">Tiago Ramos</td>
+                    <td class="px-3 py-2">🏆 Elite</td>
+                    <td class="px-3 py-2 font-semibold">36</td>
+                    <td class="px-3 py-2">5.20%</td>
+                    <td class="px-3 py-2 font-semibold">30.81</td>
+                    <td class="px-3 py-2 text-emerald-300">▲ +38.46% (abs 10)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="card rounded-[24px] p-5">
+            <h4 class="text-4xl font-semibold text-white">Insights Premium</h4>
+            <ul class="mt-3 list-disc space-y-2 pl-6 text-lg text-gray-200">
+              <li>Victor Lacôrte assumiu a liderança neste ciclo.</li>
+              <li>Top 3 concentram 22.69% das mensagens.</li>
+              <li>O engajamento geral cresceu 220.37%.</li>
+              <li>Alexandre Santos apresenta crescimento acelerado.</li>
+              <li>Dario apresenta risco de inatividade.</li>
+              <li>A média diária subiu 220.37%.</li>
+              <li>O nível de concentração está classificado como Saudável.</li>
+              <li>44 participantes estão abaixo da média.</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
