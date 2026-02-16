@@ -3,23 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iMavyAgent | Proteção e Automação para Comunidades</title>
+  <title>iMavyAgent | Proteção e Automação Inteligente para Comunidades</title>
+  <meta name="description" content="iMavyAgent é um sistema de proteção e automação inteligente para comunidades de Marketing Digital, Web3 e Mentorias no WhatsApp." />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <style>
     :root {
-      --bg-0: #05070d;
-      --bg-1: #0b1220;
+      --bg-primary: #070b14;
+      --bg-secondary: #0c1424;
       --line: rgba(255, 255, 255, 0.08);
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --blue: #3b82f6;
-      --indigo: #6366f1;
-      --violet: #8b5cf6;
-      --cyan: #22d3ee;
     }
 
     html {
@@ -27,64 +22,58 @@
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      color: var(--text);
+      font-family: 'Inter', sans-serif;
       background:
-        radial-gradient(900px 600px at 85% -10%, rgba(99, 102, 241, 0.25), transparent 60%),
-        radial-gradient(900px 700px at -10% 30%, rgba(59, 130, 246, 0.18), transparent 65%),
-        linear-gradient(180deg, var(--bg-1), var(--bg-0));
-      min-height: 100vh;
-      overflow-x: hidden;
+        radial-gradient(1000px 600px at 90% -10%, rgba(99, 102, 241, 0.25), transparent 60%),
+        radial-gradient(900px 500px at -10% 25%, rgba(56, 189, 248, 0.15), transparent 60%),
+        linear-gradient(180deg, var(--bg-secondary), var(--bg-primary));
+      color: #e5e7eb;
     }
 
-    .grid-overlay {
+    .bg-grid {
       position: fixed;
       inset: 0;
+      z-index: 0;
+      pointer-events: none;
       background-image:
         linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: radial-gradient(circle at center, black 20%, transparent 85%);
-      pointer-events: none;
-      z-index: 0;
+      background-size: 52px 52px;
+      mask-image: radial-gradient(circle at center, black 25%, transparent 85%);
     }
 
     .glass {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+      border: 1px solid rgba(255, 255, 255, 0.14);
       backdrop-filter: blur(10px);
     }
 
     .card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
-      box-shadow: 0 18px 60px rgba(2, 6, 23, 0.45);
+      box-shadow: 0 16px 40px rgba(2, 6, 23, 0.4);
     }
 
-    .soft-shadow {
-      box-shadow: 0 12px 50px rgba(2, 6, 23, 0.45);
-    }
-
-    .btn-primary {
-      background: linear-gradient(90deg, var(--blue), var(--indigo));
+    .cta-primary {
+      background: linear-gradient(90deg, #2563eb, #4f46e5);
       border: 1px solid rgba(255, 255, 255, 0.25);
-      transition: all 0.25s ease;
+      transition: all .25s ease;
     }
 
-    .btn-primary:hover {
+    .cta-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 12px 30px rgba(59, 130, 246, 0.35);
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
     }
 
-    .btn-secondary {
+    .cta-secondary {
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.28);
-      background: rgba(255, 255, 255, 0.03);
-      transition: all 0.25s ease;
+      transition: all .25s ease;
     }
 
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.08);
+    .cta-secondary:hover {
+      background: rgba(255, 255, 255, 0.09);
       border-color: rgba(255, 255, 255, 0.5);
     }
 
@@ -93,48 +82,46 @@
     }
   </style>
 </head>
-<body>
-  <div class="grid-overlay"></div>
+<body class="relative min-h-screen overflow-x-hidden">
+  <div class="bg-grid"></div>
 
-  <header class="relative z-20 border-b border-white/10 bg-black/40 backdrop-blur-xl">
-    <nav class="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4">
-      <a href="#" class="flex items-center gap-3">
-        <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-blue-500/20 text-blue-400">
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-black/45 backdrop-blur-xl">
+    <nav class="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4" aria-label="Principal">
+      <a href="#" class="flex items-center gap-3" aria-label="Página inicial iMavyAgent">
+        <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/20 text-blue-300">
           <i class="fa-solid fa-shield-halved"></i>
         </span>
-        <span class="text-2xl font-bold tracking-tight text-white">iMavy<span class="text-blue-400">Agent</span></span>
+        <span class="text-2xl font-extrabold text-white">iMavy<span class="text-blue-400">Agent</span></span>
       </a>
+
+      <button id="menu-toggle" class="text-white lg:hidden" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+        <i class="fa-solid fa-bars text-2xl"></i>
+      </button>
 
       <div class="hidden items-center gap-8 lg:flex">
         <a href="#problemas" class="text-sm font-medium text-gray-300 hover:text-white">Problemas</a>
         <a href="#solucao" class="text-sm font-medium text-gray-300 hover:text-white">Solução</a>
         <a href="#dashboard" class="text-sm font-medium text-gray-300 hover:text-white">Dashboard</a>
-        <a href="#web3" class="text-sm font-medium text-gray-300 hover:text-white">Web3</a>
+        <a href="#comandos" class="text-sm font-medium text-gray-300 hover:text-white">Comandos</a>
         <a href="#planos" class="text-sm font-medium text-gray-300 hover:text-white">Planos</a>
         <a href="#faq" class="text-sm font-medium text-gray-300 hover:text-white">FAQ</a>
       </div>
 
-      <div class="hidden lg:block">
-        <button onclick="falarNoZap('Olá, quero ativar o sistema de proteção e automação inteligente na minha comunidade.');" class="btn-primary rounded-xl px-5 py-2.5 text-sm font-semibold text-white">
-          PROTEGER AGORA
-        </button>
-      </div>
-
-      <button class="text-white lg:hidden" onclick="toggleMenu()">
-        <i class="fa-solid fa-bars text-2xl"></i>
+      <button onclick="falarNoZap('Olá, quero ativar o iMavyAgent na minha comunidade.')" class="hidden rounded-xl px-5 py-2.5 text-sm font-semibold text-white lg:inline-flex cta-primary">
+        COMEÇAR AGORA
       </button>
     </nav>
 
     <div id="mobile-menu" class="hidden border-t border-white/10 bg-black/80 px-6 py-5 lg:hidden">
-      <div class="flex flex-col gap-4 text-sm text-gray-300">
-        <a href="#problemas" onclick="toggleMenu()">Problemas</a>
-        <a href="#solucao" onclick="toggleMenu()">Solução</a>
-        <a href="#dashboard" onclick="toggleMenu()">Dashboard</a>
-        <a href="#web3" onclick="toggleMenu()">Web3</a>
-        <a href="#planos" onclick="toggleMenu()">Planos</a>
-        <a href="#faq" onclick="toggleMenu()">FAQ</a>
-        <button onclick="falarNoZap('Olá, quero ativar o sistema de proteção e automação inteligente na minha comunidade.');" class="btn-primary mt-2 rounded-xl px-5 py-2.5 text-sm font-semibold text-white">
-          PROTEGER AGORA
+      <div class="flex flex-col gap-4 text-sm text-gray-200">
+        <a href="#problemas" class="hover:text-white">Problemas</a>
+        <a href="#solucao" class="hover:text-white">Solução</a>
+        <a href="#dashboard" class="hover:text-white">Dashboard</a>
+        <a href="#comandos" class="hover:text-white">Comandos</a>
+        <a href="#planos" class="hover:text-white">Planos</a>
+        <a href="#faq" class="hover:text-white">FAQ</a>
+        <button onclick="falarNoZap('Olá, quero ativar o iMavyAgent na minha comunidade.')" class="mt-2 rounded-xl px-5 py-2.5 text-sm font-semibold text-white cta-primary">
+          COMEÇAR AGORA
         </button>
       </div>
     </div>
@@ -143,366 +130,221 @@
   <main class="relative z-10">
     <section class="mx-auto grid w-full max-w-7xl grid-cols-1 gap-12 px-6 pb-16 pt-14 lg:grid-cols-2 lg:items-center">
       <div>
-        <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/40 bg-blue-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-blue-300">
+        <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-300/40 bg-blue-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-blue-200">
           <span class="h-2 w-2 rounded-full bg-blue-400"></span>
           Operação 24h ativa
         </div>
 
         <h1 class="section-title text-4xl font-extrabold leading-tight text-white md:text-6xl">
-          Proteção e automação profissional para comunidades de Marketing Digital, Web3 e Mentorias
+          Proteção e automação inteligente para comunidades que precisam de autoridade e escala
         </h1>
 
         <p class="mt-6 max-w-2xl text-lg leading-relaxed text-gray-300">
-          Evite spam, golpes, links falsos, phishing e desorganização que derrubam credibilidade. O iMavyAgent é um sistema de proteção e automação inteligente que mantém sua operação segura, organizada e ativa 24h por dia.
+          Elimine spam, golpes, phishing e desorganização no WhatsApp. O iMavyAgent protege sua comunidade de Marketing Digital, Web3 e Mentorias com tecnologia profissional, dashboard de grupos e comandos cripto.
         </p>
 
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-          <button onclick="falarNoZap('Olá, quero ativar agora o iMavyAgent no meu grupo.');" class="btn-primary rounded-xl px-6 py-3 text-sm font-semibold text-white">
-            ATIVAR AGORA
+          <button onclick="falarNoZap('Olá, quero começar grátis com o iMavyAgent.')" class="rounded-xl px-6 py-3 text-sm font-semibold text-white cta-primary">
+            Comece Grátis
           </button>
-          <a href="#planos" class="btn-secondary rounded-xl px-6 py-3 text-center text-sm font-semibold text-white">
-            VER PLANOS
+          <a href="#planos" class="rounded-xl px-6 py-3 text-center text-sm font-semibold text-white cta-secondary">
+            Ver Planos
           </a>
         </div>
 
         <div class="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
-          <div class="card p-4 text-sm text-gray-200">Bloqueio de ameaças em tempo real</div>
-          <div class="card p-4 text-sm text-gray-200">Automação e lembretes 24/7</div>
-          <div class="card p-4 text-sm text-gray-200">Dashboard de controle por grupo</div>
+          <div class="card p-4 text-sm">Proteção anti-scam em tempo real</div>
+          <div class="card p-4 text-sm">Automação e lembretes 24h</div>
+          <div class="card p-4 text-sm">Dashboard de grupos centralizado</div>
         </div>
       </div>
 
       <div class="relative">
         <div class="absolute -inset-6 -z-10 rounded-[36px] bg-gradient-to-br from-blue-600/30 via-indigo-500/20 to-violet-500/30 blur-3xl"></div>
-        <div class="card soft-shadow rounded-[28px] p-3">
-          <div class="relative overflow-hidden rounded-2xl border border-white/10 bg-black/30">
-            <img src="assets/bot-imavy.png" alt="iMavyAgent sistema de proteção e automação inteligente" class="w-full h-auto max-h-[640px] object-contain" />
-            <div class="absolute left-3 top-3 rounded-lg border border-white/20 bg-black/55 px-3 py-1 text-xs font-semibold text-cyan-200">
-              iMavyAgent
+        <div class="card rounded-[28px] p-5">
+          <div class="mb-4 flex items-center justify-between rounded-xl border border-white/10 bg-black/30 px-4 py-3">
+            <div>
+              <p class="text-xs uppercase tracking-wide text-gray-400">Dashboard iMavyAgent</p>
+              <p class="text-base font-semibold text-white">Visão Geral da Operação</p>
             </div>
-            <div class="absolute bottom-3 right-3 rounded-lg bg-emerald-500/20 px-3 py-1 text-xs font-semibold text-emerald-300">
-              Online 24h
+            <span class="rounded-lg bg-emerald-500/20 px-3 py-1 text-xs font-semibold text-emerald-300">Online 24h</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="rounded-xl border border-white/10 bg-white/5 p-4">
+              <p class="text-xs text-gray-400">Ameaças bloqueadas</p>
+              <p class="mt-2 text-3xl font-bold text-white">138</p>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-white/5 p-4">
+              <p class="text-xs text-gray-400">Lembretes enviados</p>
+              <p class="mt-2 text-3xl font-bold text-white">52</p>
+            </div>
+            <div class="col-span-2 rounded-xl border border-white/10 bg-white/5 p-4">
+              <p class="text-xs text-gray-400">Alertas recentes</p>
+              <div class="mt-3 space-y-2 text-sm">
+                <div class="flex items-center justify-between rounded-lg bg-black/40 px-3 py-2">
+                  <span class="text-gray-200">Link falso removido</span>
+                  <span class="text-emerald-300">Resolvido</span>
+                </div>
+                <div class="flex items-center justify-between rounded-lg bg-black/40 px-3 py-2">
+                  <span class="text-gray-200">Preço BTC consultado</span>
+                  <span class="text-blue-300">Comando /btc</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="mx-auto w-full max-w-7xl px-6 py-12">
-      <div class="mb-8 text-center">
-        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-blue-300">Ativação simples</p>
-        <h2 class="section-title mt-3 text-3xl font-bold text-white md:text-4xl">Comece em 3 passos</h2>
-      </div>
-
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-        <article class="card p-6">
-          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/20 text-sm font-bold text-blue-300">1</div>
-          <h3 class="text-xl font-semibold text-white">Escolha o plano ideal</h3>
-          <p class="mt-3 text-sm leading-relaxed text-gray-300">Selecione o nível de proteção certo para sua comunidade.</p>
-        </article>
-
-        <article class="card p-6">
-          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/20 text-sm font-bold text-blue-300">2</div>
-          <h3 class="text-xl font-semibold text-white">Receba acesso imediato</h3>
-          <p class="mt-3 text-sm leading-relaxed text-gray-300">Escolha o plano, você será redirecionado para o WhatsApp e nós adicionaremos o sistema de proteção e automação inteligente ao seu grupo.</p>
-        </article>
-
-        <article class="card p-6">
-          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/20 text-sm font-bold text-blue-300">3</div>
-          <h3 class="text-xl font-semibold text-white">Comunidade protegida 24h</h3>
-          <p class="mt-3 text-sm leading-relaxed text-gray-300">Pronto. Sua comunidade fica protegida e organizada automaticamente, sem depender de moderação manual.</p>
-        </article>
       </div>
     </section>
 
     <section id="problemas" class="mx-auto w-full max-w-7xl px-6 py-16">
       <div class="mb-10 text-center">
-        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-blue-300">Problemas reais</p>
-        <h2 class="section-title mt-3 text-3xl font-bold text-white md:text-4xl">O que está custando autoridade e dinheiro no seu grupo</h2>
+        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-blue-300">Problemas do público</p>
+        <h2 class="section-title mt-3 text-3xl font-bold text-white md:text-4xl">Os 3 riscos que mais prejudicam grupos no WhatsApp</h2>
       </div>
 
       <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
         <article class="card p-6">
-          <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-red-500/15 text-red-300">
-            <i class="fa-solid fa-bug"></i>
+          <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-red-500/15 text-red-300">
+            <i class="fa-solid fa-bug text-lg"></i>
           </div>
-          <h3 class="text-xl font-semibold text-white">Spam e flood</h3>
-          <p class="mt-3 text-sm leading-relaxed text-gray-300">Mensagens em massa e travamentos deixam o grupo improdutivo e afastam membros qualificados.</p>
+          <h3 class="text-xl font-semibold text-white">Spam</h3>
+          <p class="mt-3 text-sm leading-relaxed text-gray-300">Mensagens em massa e flood desorganizam o grupo, reduzem engajamento real e afastam membros qualificados.</p>
         </article>
 
         <article class="card p-6">
-          <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-amber-500/15 text-amber-300">
-            <i class="fa-solid fa-triangle-exclamation"></i>
+          <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-amber-500/15 text-amber-300">
+            <i class="fa-solid fa-triangle-exclamation text-lg"></i>
           </div>
           <h3 class="text-xl font-semibold text-white">Golpes e phishing</h3>
-          <p class="mt-3 text-sm leading-relaxed text-gray-300">Links falsos, promessas enganosas e tentativas de scam colocam sua comunidade e sua marca em risco.</p>
+          <p class="mt-3 text-sm leading-relaxed text-gray-300">Links falsos e tentativas de scam colocam sua comunidade em risco e comprometem a confiança no seu projeto.</p>
         </article>
 
         <article class="card p-6">
-          <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-violet-500/15 text-violet-300">
-            <i class="fa-solid fa-chart-line"></i>
+          <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-violet-500/15 text-violet-300">
+            <i class="fa-solid fa-chart-line text-lg"></i>
           </div>
           <h3 class="text-xl font-semibold text-white">Perda de autoridade</h3>
-          <p class="mt-3 text-sm leading-relaxed text-gray-300">Sem organização, regras e automação, sua operação parece amadora e perde capacidade de conversão.</p>
+          <p class="mt-3 text-sm leading-relaxed text-gray-300">Sem rotina de moderação e automação, a operação fica amadora e você perde percepção de valor perante os membros.</p>
         </article>
       </div>
     </section>
-
     <section id="solucao" class="mx-auto w-full max-w-7xl px-6 py-16">
       <div class="mb-10 text-center">
-        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-300">Solução iMavyAgent</p>
-        <h2 class="section-title mt-3 text-3xl font-bold text-white md:text-4xl">Infraestrutura de proteção e automação para comunidades sérias</h2>
+        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-300">Solução e benefícios</p>
+        <h2 class="section-title mt-3 text-3xl font-bold text-white md:text-4xl">Infraestrutura SaaS para proteger e escalar sua comunidade</h2>
       </div>
 
       <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
-        <div class="card p-6">
+        <article class="card p-6">
           <h3 class="text-lg font-semibold text-white">Proteção anti-scam</h3>
-          <p class="mt-3 text-sm text-gray-300">Anti-link automático, anti-spam, anti-flood e filtros inteligentes para bloquear golpes em tempo real.</p>
-        </div>
-        <div class="card p-6">
+          <p class="mt-3 text-sm text-gray-300">Bloqueio automático de links suspeitos, palavras maliciosas e comportamento fraudulento em tempo real.</p>
+        </article>
+
+        <article class="card p-6">
           <h3 class="text-lg font-semibold text-white">Automação 24h</h3>
-          <p class="mt-3 text-sm text-gray-300">Boas-vindas, mensagens programadas, anúncios, respostas automáticas e lembretes operando sem pausa.</p>
-        </div>
-        <div class="card p-6">
-          <h3 class="text-lg font-semibold text-white">Dashboard de controle</h3>
-          <p class="mt-3 text-sm text-gray-300">Gerencie comandos, filtros, regras e atividade dos grupos em um painel único e prático.</p>
-        </div>
-        <div class="card p-6">
+          <p class="mt-3 text-sm text-gray-300">Mensagens programadas, boas-vindas, respostas inteligentes e lembretes contínuos sem esforço manual.</p>
+        </article>
+
+        <article class="card p-6">
+          <h3 class="text-lg font-semibold text-white">Dashboard intuitivo</h3>
+          <p class="mt-3 text-sm text-gray-300">Controle central de configurações, comandos, filtros e atividade dos grupos em uma única interface.</p>
+        </article>
+
+        <article class="card p-6">
           <h3 class="text-lg font-semibold text-white">Comandos cripto</h3>
-          <p class="mt-3 text-sm text-gray-300">Consulta de valores de criptomoedas e tokens para comunidades Web3 com agilidade no dia a dia.</p>
-        </div>
+          <p class="mt-3 text-sm text-gray-300">Consulta de preço de tokens e insights rápidos para comunidades Web3 com decisões mais ágeis.</p>
+        </article>
       </div>
     </section>
 
-    <section id="dashboard" class="mx-auto w-full max-w-7xl px-6 py-16">
-      <div class="mb-10 text-center">
-        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-indigo-300">Dashboard de Grupos</p>
-        <h2 class="section-title mt-3 text-3xl font-bold text-white md:text-4xl">Exemplos reais de análise e performance da comunidade</h2>
+    <section id="dashboard" class="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 px-6 py-16 lg:grid-cols-2 lg:items-center">
+      <div class="card overflow-hidden rounded-[24px] p-4">
+        <div class="rounded-2xl border border-white/10 bg-black/35 p-4">
+          <div class="mb-4 flex items-center justify-between">
+            <div>
+              <p class="text-xs uppercase tracking-[0.14em] text-gray-400">Painel de grupos</p>
+              <p class="text-sm font-semibold text-white">Gestão e segurança em tempo real</p>
+            </div>
+            <span class="rounded-lg bg-blue-500/20 px-3 py-1 text-xs font-semibold text-blue-300">Dashboard ativo</span>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3">
+            <div class="rounded-xl border border-white/10 bg-white/5 p-3 text-center">
+              <p class="text-xs text-gray-400">Grupos</p>
+              <p class="text-xl font-bold text-white">5</p>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-white/5 p-3 text-center">
+              <p class="text-xs text-gray-400">Filtros ativos</p>
+              <p class="text-xl font-bold text-white">29</p>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-white/5 p-3 text-center">
+              <p class="text-xs text-gray-400">Ações em 24h</p>
+              <p class="text-xl font-bold text-white">184</p>
+            </div>
+          </div>
+
+          <div class="mt-4 space-y-2 rounded-xl border border-white/10 bg-white/5 p-3">
+            <div class="flex items-center justify-between rounded-lg bg-black/35 px-3 py-2 text-sm">
+              <span>Mentoria Growth</span>
+              <span class="text-emerald-300">Protegido</span>
+            </div>
+            <div class="flex items-center justify-between rounded-lg bg-black/35 px-3 py-2 text-sm">
+              <span>Comunidade Web3 Alpha</span>
+              <span class="text-emerald-300">Protegido</span>
+            </div>
+            <div class="flex items-center justify-between rounded-lg bg-black/35 px-3 py-2 text-sm">
+              <span>Clube de Membros Pro</span>
+              <span class="text-amber-300">Ajuste recomendado</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
-        <div class="card overflow-hidden rounded-[24px] p-5">
-          <p class="text-sm text-gray-300">Fonte: <span class="font-semibold text-blue-300">Supabase Realtime</span> | Realtime: <span class="font-semibold text-emerald-300">Online</span></p>
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-indigo-300">Dashboard visual</p>
+        <h2 class="section-title mt-3 text-3xl font-bold text-white md:text-4xl">Painel claro para operar com previsibilidade</h2>
 
-          <div class="mt-4 rounded-2xl border border-yellow-300/30 bg-yellow-500/10 p-5">
-            <p class="text-xs font-semibold uppercase tracking-[0.14em] text-yellow-200">Top 1</p>
-            <h3 class="mt-2 text-4xl font-bold text-white">Victor Lacôrte</h3>
-            <p class="mt-1 text-lg text-yellow-100">🏆 Elite com 9.09% de participação.</p>
-            <div class="mt-4 rounded-xl border border-white/15 bg-white/5 p-4 text-base text-gray-100">
-              <p><span class="font-semibold text-white">63</span> mensagens</p>
-              <p><span class="font-semibold text-white">45.45</span> score de engajamento</p>
-              <p>Se o ritmo continuar, Victor Lacôrte fechará o mês com <span class="font-semibold text-white">882 mensagens</span>.</p>
-            </div>
-          </div>
-
-          <div class="mt-4 grid grid-cols-2 gap-3 md:grid-cols-3">
-            <div class="rounded-xl border border-white/10 bg-white/5 p-3">
-              <p class="text-xs text-gray-400">Total geral</p>
-              <p class="text-3xl font-bold text-white">693</p>
-            </div>
-            <div class="rounded-xl border border-white/10 bg-white/5 p-3">
-              <p class="text-xs text-gray-400">Participantes</p>
-              <p class="text-3xl font-bold text-white">65</p>
-            </div>
-            <div class="rounded-xl border border-white/10 bg-white/5 p-3">
-              <p class="text-xs text-gray-400">Média por participante</p>
-              <p class="text-3xl font-bold text-white">10.66</p>
-            </div>
-            <div class="rounded-xl border border-white/10 bg-white/5 p-3">
-              <p class="text-xs text-gray-400">Índice de concentração (Top 3)</p>
-              <p class="text-3xl font-bold text-white">22.66%</p>
-              <p class="text-xs text-emerald-300">Saudável</p>
-            </div>
-            <div class="rounded-xl border border-white/10 bg-white/5 p-3">
-              <p class="text-xs text-gray-400">Score médio de engajamento</p>
-              <p class="text-3xl font-bold text-white">37.04</p>
-            </div>
-            <div class="rounded-xl border border-white/10 bg-white/5 p-3">
-              <p class="text-xs text-gray-400">Participantes em risco</p>
-              <p class="text-3xl font-bold text-white">20</p>
-            </div>
-          </div>
-
-          <div class="mt-4 rounded-2xl border border-white/10 bg-white/5 p-5">
-            <h4 class="text-3xl font-semibold text-white">Insights Base</h4>
-            <ul class="mt-3 list-disc space-y-2 pl-6 text-lg text-gray-200">
-              <li>Victor Lacôrte lidera com 9.09% das mensagens.</li>
-              <li>Top 3 concentram 22.66% da participação.</li>
-              <li>Victor Lacôrte teve maior crescimento no período (+425%).</li>
-              <li>Dario teve maior queda no período (-30.43%).</li>
-              <li>20 participantes enviaram apenas 1 mensagem.</li>
-              <li>A média geral foi de 10.66 mensagens por participante.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="space-y-6">
-          <div class="card overflow-hidden rounded-[24px] p-5">
-            <h4 class="text-4xl font-semibold text-white">Top 15</h4>
-            <div class="mt-4 overflow-x-auto rounded-xl border border-white/10">
-              <table class="min-w-full text-left text-sm">
-                <thead class="bg-white/5 text-gray-300">
-                  <tr>
-                    <th class="px-3 py-2">Posição</th>
-                    <th class="px-3 py-2">Nome</th>
-                    <th class="px-3 py-2">Nível</th>
-                    <th class="px-3 py-2">Total</th>
-                    <th class="px-3 py-2">Participação</th>
-                    <th class="px-3 py-2">Score</th>
-                    <th class="px-3 py-2">Crescimento</th>
-                  </tr>
-                </thead>
-                <tbody class="text-gray-100">
-                  <tr class="border-t border-white/10">
-                    <td class="px-3 py-2">1</td>
-                    <td class="px-3 py-2 font-medium">Victor Lacôrte</td>
-                    <td class="px-3 py-2">🏆 Elite</td>
-                    <td class="px-3 py-2 font-semibold">63</td>
-                    <td class="px-3 py-2">9.10%</td>
-                    <td class="px-3 py-2 font-semibold">45.46</td>
-                    <td class="px-3 py-2 text-emerald-300">▲ +425.00% (abs 51)</td>
-                  </tr>
-                  <tr class="border-t border-white/10">
-                    <td class="px-3 py-2">2</td>
-                    <td class="px-3 py-2 font-medium">Dario</td>
-                    <td class="px-3 py-2">🏆 Elite</td>
-                    <td class="px-3 py-2 font-semibold">48</td>
-                    <td class="px-3 py-2">6.94%</td>
-                    <td class="px-3 py-2 font-semibold">18.08</td>
-                    <td class="px-3 py-2 text-red-300">▼ -30.43% (abs -21)</td>
-                  </tr>
-                  <tr class="border-t border-white/10">
-                    <td class="px-3 py-2">3</td>
-                    <td class="px-3 py-2 font-medium">Lourival</td>
-                    <td class="px-3 py-2">🏆 Elite</td>
-                    <td class="px-3 py-2 font-semibold">46</td>
-                    <td class="px-3 py-2">6.65%</td>
-                    <td class="px-3 py-2 font-semibold">43.99</td>
-                    <td class="px-3 py-2 text-emerald-300">▲ +100.00% (abs 46)</td>
-                  </tr>
-                  <tr class="border-t border-white/10">
-                    <td class="px-3 py-2">4</td>
-                    <td class="px-3 py-2 font-medium">Alexandre Santos</td>
-                    <td class="px-3 py-2">🏆 Elite</td>
-                    <td class="px-3 py-2 font-semibold">41</td>
-                    <td class="px-3 py-2">5.92%</td>
-                    <td class="px-3 py-2 font-semibold">43.55</td>
-                    <td class="px-3 py-2 text-emerald-300">▲ +1266.67% (abs 38)</td>
-                  </tr>
-                  <tr class="border-t border-white/10">
-                    <td class="px-3 py-2">5</td>
-                    <td class="px-3 py-2 font-medium">Lucas Breno</td>
-                    <td class="px-3 py-2">🏆 Elite</td>
-                    <td class="px-3 py-2 font-semibold">38</td>
-                    <td class="px-3 py-2">5.49%</td>
-                    <td class="px-3 py-2 font-semibold">43.29</td>
-                    <td class="px-3 py-2 text-emerald-300">▲ +100.00% (abs 38)</td>
-                  </tr>
-                  <tr class="border-t border-white/10">
-                    <td class="px-3 py-2">6</td>
-                    <td class="px-3 py-2 font-medium">Tiago Ramos</td>
-                    <td class="px-3 py-2">🏆 Elite</td>
-                    <td class="px-3 py-2 font-semibold">36</td>
-                    <td class="px-3 py-2">5.20%</td>
-                    <td class="px-3 py-2 font-semibold">30.81</td>
-                    <td class="px-3 py-2 text-emerald-300">▲ +38.46% (abs 10)</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div class="card rounded-[24px] p-5">
-            <h4 class="text-4xl font-semibold text-white">Insights Premium</h4>
-            <ul class="mt-3 list-disc space-y-2 pl-6 text-lg text-gray-200">
-              <li>Victor Lacôrte assumiu a liderança neste ciclo.</li>
-              <li>Top 3 concentram 22.69% das mensagens.</li>
-              <li>O engajamento geral cresceu 220.37%.</li>
-              <li>Alexandre Santos apresenta crescimento acelerado.</li>
-              <li>Dario apresenta risco de inatividade.</li>
-              <li>A média diária subiu 220.37%.</li>
-              <li>O nível de concentração está classificado como Saudável.</li>
-              <li>44 participantes estão abaixo da média.</li>
-            </ul>
-          </div>
-        </div>
+        <ul class="mt-6 space-y-3 text-sm text-gray-300">
+          <li class="flex gap-3"><i class="fa-solid fa-circle-check mt-0.5 text-emerald-300"></i><span>Configuração de filtros por grupo com poucos cliques.</span></li>
+          <li class="flex gap-3"><i class="fa-solid fa-circle-check mt-0.5 text-emerald-300"></i><span>Controle de comandos e automações em uma única tela.</span></li>
+          <li class="flex gap-3"><i class="fa-solid fa-circle-check mt-0.5 text-emerald-300"></i><span>Visualização de atividade para decisões rápidas de moderação.</span></li>
+          <li class="flex gap-3"><i class="fa-solid fa-circle-check mt-0.5 text-emerald-300"></i><span>Mais organização e autoridade para comunidades pagas.</span></li>
+        </ul>
       </div>
     </section>
 
-    <section id="web3" class="mx-auto w-full max-w-7xl px-6 py-16">
+    <section id="comandos" class="mx-auto w-full max-w-7xl px-6 py-16">
       <div class="card overflow-hidden rounded-[24px] p-0">
-        <div class="grid grid-cols-1 items-center gap-8 bg-gradient-to-r from-blue-600/10 via-indigo-500/10 to-violet-500/10 p-8 lg:grid-cols-2">
+        <div class="grid grid-cols-1 gap-8 bg-gradient-to-r from-blue-700/10 via-indigo-600/10 to-violet-600/10 p-8 lg:grid-cols-2 lg:items-center">
           <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-300">Especial para Web3</p>
-            <h2 class="section-title mt-3 text-3xl font-bold text-white md:text-4xl">Proteja sua comunidade cripto contra scams e links falsos</h2>
-            <p class="mt-4 text-sm leading-relaxed text-gray-300">Reduza risco reputacional com proteção contínua e ofereça utilidade com comandos para consulta de valores de criptomoedas e tokens dentro do grupo.</p>
+            <p class="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-300">Comandos cripto</p>
+            <h2 class="section-title mt-3 text-3xl font-bold text-white md:text-4xl">Dados rápidos no grupo para decisões melhores em projetos Web3</h2>
+            <p class="mt-4 text-sm leading-relaxed text-gray-300">Comandos simples para consultar preço de tokens e acompanhar mercado sem sair do WhatsApp. Ideal para comunidades com ritmo alto e foco em execução.</p>
             <div class="mt-6 flex flex-wrap gap-2 text-xs font-semibold">
-              <span class="rounded-full border border-white/15 bg-white/5 px-3 py-1">BTC/USDT</span>
-              <span class="rounded-full border border-white/15 bg-white/5 px-3 py-1">ETH/USDT</span>
-              <span class="rounded-full border border-white/15 bg-white/5 px-3 py-1">Consulta de tokens</span>
-              <span class="rounded-full border border-white/15 bg-white/5 px-3 py-1">Alertas de risco</span>
-            </div>
-            <div class="mt-3 flex flex-wrap gap-2 text-xs font-semibold text-cyan-200">
-              <span class="rounded-full border border-cyan-300/30 bg-cyan-500/10 px-3 py-1">Comando cripto: /btc</span>
-              <span class="rounded-full border border-cyan-300/30 bg-cyan-500/10 px-3 py-1">Comando lembretes: /lembrete</span>
-              <span class="rounded-full border border-cyan-300/30 bg-cyan-500/10 px-3 py-1">Comando status: /statusgrupo</span>
+              <span class="rounded-full border border-white/20 bg-white/5 px-3 py-1">/btc</span>
+              <span class="rounded-full border border-white/20 bg-white/5 px-3 py-1">/eth</span>
+              <span class="rounded-full border border-white/20 bg-white/5 px-3 py-1">/token sol</span>
+              <span class="rounded-full border border-white/20 bg-white/5 px-3 py-1">/statusgrupo</span>
             </div>
           </div>
 
           <div class="rounded-2xl border border-white/10 bg-black/35 p-5">
-            <div class="space-y-4 text-sm">
-              <p class="text-xs font-semibold uppercase tracking-[0.14em] text-gray-400">Comandos em ação (exemplos reais)</p>
+            <p class="text-xs font-semibold uppercase tracking-[0.14em] text-gray-400">Exemplos de comandos</p>
 
-              <div class="rounded-xl border border-white/10 bg-[#0d121d] p-4">
-                <div class="mb-3 flex justify-end">
-                  <span class="rounded-xl bg-emerald-600/30 px-3 py-1 text-xs font-semibold text-emerald-200">/btc</span>
-                </div>
-                <div class="rounded-xl border border-white/10 bg-black/40 p-3">
-                  <p class="font-semibold text-cyan-300">📊 BTC (Bitcoin)</p>
-                  <p class="text-gray-200">💵 USD: $68,443.00</p>
-                  <p class="text-gray-200">🇧🇷 BRL: R$ 357.203,000</p>
-                  <p class="text-gray-200">🕒 24h: -1.91%</p>
-                  <p class="text-gray-200">🔗 CoinMarketCap: https://coinmarketcap.com/currencies/bitcoin/</p>
-                  <p class="text-gray-400">⏱ Atualizado: 15/02/2026, 20:25:34</p>
-                  <p class="text-gray-400">📡 Fonte: CoinGecko</p>
-                </div>
+            <div class="mt-3 space-y-3 text-sm">
+              <div class="rounded-xl border border-white/10 bg-[#0c1220] p-4">
+                <div class="mb-2 text-right"><span class="rounded-lg bg-emerald-500/20 px-3 py-1 text-xs font-semibold text-emerald-200">/btc</span></div>
+                <p class="font-semibold text-cyan-300">BTC (Bitcoin)</p>
+                <p class="text-gray-200">USD: $68,443.00 | BRL: R$357.203,00</p>
+                <p class="text-gray-400">Atualizado em tempo real | Fonte: CoinGecko</p>
               </div>
 
-              <div class="rounded-xl border border-white/10 bg-[#0d121d] p-4">
-                <div class="mb-3 flex justify-end">
-                  <span class="rounded-xl bg-blue-600/30 px-3 py-1 text-xs font-semibold text-blue-200">/lembrete iniciar 1 10</span>
-                </div>
-                <div class="space-y-2">
-                  <div class="rounded-xl border border-white/10 bg-black/40 p-3">
-                    <p class="font-semibold text-emerald-300">✅ Teste Iniciado</p>
-                    <p class="text-gray-200">Intervalo: 1 minuto</p>
-                    <p class="text-gray-200">Duração: 10 minutos</p>
-                    <p class="mt-2 text-gray-200">ESSE É UM EXEMPLO DE LEMBRETE.</p>
-                  </div>
-                  <div class="rounded-xl border border-white/10 bg-black/40 p-3">
-                    <p class="font-semibold text-gray-200">NOTIFICAÇÃO AUTOMÁTICA</p>
-                    <p class="mt-2 text-gray-200">ESSE É UM EXEMPLO DE LEMBRETE.</p>
-                    <p class="mt-1 text-gray-400">iMavyAgent | Sistema de Lembretes</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="rounded-xl border border-white/10 bg-[#0d121d] p-4">
-                <div class="mb-3 flex justify-end">
-                  <span class="rounded-xl bg-indigo-600/30 px-3 py-1 text-xs font-semibold text-indigo-200">/statusgrupo</span>
-                </div>
-                <div class="rounded-xl border border-white/10 bg-black/40 p-3">
-                  <p class="font-semibold text-cyan-300">📊 STATUS DO GRUPO 📊</p>
-                  <p class="mt-2 text-gray-200">👥 Membros: 4</p>
-                  <p class="text-gray-200">👮 Administradores: 3</p>
-                  <p class="text-gray-200">📈 Atividade: Baixa</p>
-                  <p class="mt-3 font-semibold text-gray-100">🛡️ SEGURANÇA (últimas 1h)</p>
-                  <p class="text-gray-200">⚠️ Violações totais: 0</p>
-                  <p class="text-gray-200">🔗 Links bloqueados: 0</p>
-                  <p class="text-gray-200">🚫 Palavras bloqueadas: 0</p>
-                  <p class="mt-2 text-gray-300">🤖 Sistema: iMavyAgent</p>
-                  <p class="text-emerald-300">✅ Status: Online e protegendo o grupo!</p>
-                </div>
+              <div class="rounded-xl border border-white/10 bg-[#0c1220] p-4">
+                <div class="mb-2 text-right"><span class="rounded-lg bg-blue-500/20 px-3 py-1 text-xs font-semibold text-blue-200">/eth</span></div>
+                <p class="font-semibold text-cyan-300">ETH (Ethereum)</p>
+                <p class="text-gray-200">USD: $3,621.20 | BRL: R$18.940,00</p>
+                <p class="text-gray-400">Variação 24h: +2.14%</p>
               </div>
             </div>
           </div>
@@ -512,15 +354,13 @@
     <section id="planos" class="mx-auto w-full max-w-7xl px-6 py-16">
       <div class="mb-10 text-center">
         <p class="text-sm font-semibold uppercase tracking-[0.16em] text-blue-300">Planos</p>
-        <h2 class="section-title mt-3 text-3xl font-bold text-white md:text-4xl">Escolha a escala ideal para sua operação</h2>
-        <p class="mx-auto mt-3 max-w-3xl text-sm text-gray-300">Todos os planos incluem proteção, automação, dashboard, comandos cripto, sistema de lembretes e suporte 24h. A diferença principal está na quantidade de grupos.</p>
+        <h2 class="section-title mt-3 text-3xl font-bold text-white md:text-4xl">Escolha a escala ideal para sua comunidade</h2>
       </div>
 
       <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
         <article class="card flex h-full flex-col p-6">
-          <div class="mb-4 inline-flex w-fit rounded-full border border-red-400/30 bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-300">Vagas limitadas</div>
-          <h3 class="text-2xl font-semibold text-white">Fundador</h3>
-          <p class="mt-2 text-sm text-gray-300">Para iniciar com estrutura profissional.</p>
+          <h3 class="text-2xl font-bold text-white">Fundador</h3>
+          <p class="mt-1 text-sm text-gray-300">Entrada estratégica para operação profissional.</p>
           <div class="mt-6 flex items-end gap-1">
             <span class="text-lg text-blue-300">R$</span>
             <span class="text-5xl font-bold text-white">39</span>
@@ -528,19 +368,17 @@
           </div>
           <ul class="mt-6 flex-1 space-y-2 text-sm text-gray-200">
             <li><i class="fa-solid fa-check text-blue-400"></i> 1 grupo</li>
-            <li><i class="fa-solid fa-check text-blue-400"></i> Proteção anti-scam, anti-link, anti-spam e anti-flood</li>
-            <li><i class="fa-solid fa-check text-blue-400"></i> Automações, mensagens e lembretes automáticos</li>
-            <li><i class="fa-solid fa-check text-blue-400"></i> Dashboard completo e relatório básico</li>
-            <li><i class="fa-solid fa-check text-blue-400"></i> Comandos cripto (valores e tokens)</li>
-            <li><i class="fa-solid fa-check text-blue-400"></i> Suporte 24h</li>
+            <li><i class="fa-solid fa-check text-blue-400"></i> Anti-link, anti-spam, anti-flood</li>
+            <li><i class="fa-solid fa-check text-blue-400"></i> Automações e lembretes</li>
+            <li><i class="fa-solid fa-check text-blue-400"></i> Dashboard e comandos cripto</li>
           </ul>
-          <button onclick="falarNoZap('Olá, quero garantir o Plano Fundador de R$39/mês para 1 grupo.');" class="btn-secondary mt-6 rounded-xl px-5 py-3 text-sm font-semibold text-white">GARANTIR PLANO FUNDADOR</button>
+          <button onclick="falarNoZap('Olá, quero contratar o plano Fundador de R$39/mês.')" class="mt-6 rounded-xl px-5 py-3 text-sm font-semibold text-white cta-secondary">Escolher Plano</button>
         </article>
 
         <article class="card relative flex h-full flex-col border-blue-400/50 bg-blue-900/10 p-6 shadow-[0_18px_60px_rgba(37,99,235,0.35)]">
           <div class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 px-4 py-1.5 text-xs font-bold text-white">MAIS ESCOLHIDO</div>
-          <h3 class="mt-4 text-2xl font-semibold text-blue-300">Pro</h3>
-          <p class="mt-2 text-sm text-gray-300">Para escalar comunidades com consistência.</p>
+          <h3 class="mt-4 text-2xl font-bold text-blue-300">Pro</h3>
+          <p class="mt-1 text-sm text-gray-300">Escala com controle e agilidade.</p>
           <div class="mt-6 flex items-end gap-1">
             <span class="text-lg text-blue-300">R$</span>
             <span class="text-5xl font-bold text-white">79</span>
@@ -548,18 +386,16 @@
           </div>
           <ul class="mt-6 flex-1 space-y-2 text-sm text-gray-100">
             <li><i class="fa-solid fa-check text-blue-300"></i> Até 3 grupos</li>
-            <li><i class="fa-solid fa-check text-blue-300"></i> Proteção anti-scam, anti-link, anti-spam e anti-flood</li>
-            <li><i class="fa-solid fa-check text-blue-300"></i> Automações, mensagens e lembretes automáticos</li>
-            <li><i class="fa-solid fa-check text-blue-300"></i> Dashboard completo e relatório básico</li>
-            <li><i class="fa-solid fa-check text-blue-300"></i> Comandos cripto (valores e tokens)</li>
-            <li><i class="fa-solid fa-check text-blue-300"></i> Suporte 24h</li>
+            <li><i class="fa-solid fa-check text-blue-300"></i> Proteção anti-scam avançada</li>
+            <li><i class="fa-solid fa-check text-blue-300"></i> Lembretes e respostas automáticas</li>
+            <li><i class="fa-solid fa-check text-blue-300"></i> Dashboard completo + comandos cripto</li>
           </ul>
-          <button onclick="falarNoZap('Olá, quero ativar o Plano Pro de R$79/mês para até 3 grupos.');" class="btn-primary mt-6 rounded-xl px-5 py-3 text-sm font-semibold text-white">ATIVAR PLANO PRO</button>
+          <button onclick="falarNoZap('Olá, quero contratar o plano Pro de R$79/mês.')" class="mt-6 rounded-xl px-5 py-3 text-sm font-semibold text-white cta-primary">Escolher Plano</button>
         </article>
 
         <article class="card flex h-full flex-col border-violet-400/40 bg-violet-900/10 p-6">
-          <h3 class="text-2xl font-semibold text-violet-300">Business</h3>
-          <p class="mt-2 text-sm text-gray-300">Para operações de maior volume e personalização.</p>
+          <h3 class="text-2xl font-bold text-violet-300">Business</h3>
+          <p class="mt-1 text-sm text-gray-300">Maior capacidade e configuração personalizada.</p>
           <div class="mt-6 flex items-end gap-1">
             <span class="text-lg text-violet-300">R$</span>
             <span class="text-5xl font-bold text-white">149</span>
@@ -567,31 +403,12 @@
           </div>
           <ul class="mt-6 flex-1 space-y-2 text-sm text-gray-100">
             <li><i class="fa-solid fa-check text-violet-300"></i> Até 5 grupos</li>
-            <li><i class="fa-solid fa-check text-violet-300"></i> Proteção anti-scam, anti-link, anti-spam e anti-flood</li>
-            <li><i class="fa-solid fa-check text-violet-300"></i> Automações, mensagens e lembretes automáticos</li>
-            <li><i class="fa-solid fa-check text-violet-300"></i> Dashboard completo e relatório básico</li>
-            <li><i class="fa-solid fa-check text-violet-300"></i> Comandos cripto (valores e tokens)</li>
-            <li><i class="fa-solid fa-check text-violet-300"></i> Configuração personalizada (exclusivo)</li>
-            <li><i class="fa-solid fa-check text-violet-300"></i> Suporte 24h</li>
+            <li><i class="fa-solid fa-check text-violet-300"></i> Proteção + automação completa</li>
+            <li><i class="fa-solid fa-check text-violet-300"></i> Comandos cripto avançados</li>
+            <li><i class="fa-solid fa-check text-violet-300"></i> Configuração personalizada</li>
           </ul>
-          <button onclick="falarNoZap('Olá, quero ativar o Plano Business de R$149/mês para até 5 grupos.');" class="btn-secondary mt-6 rounded-xl px-5 py-3 text-sm font-semibold text-white">ATIVAR PLANO BUSINESS</button>
+          <button onclick="falarNoZap('Olá, quero contratar o plano Business de R$149/mês.')" class="mt-6 rounded-xl px-5 py-3 text-sm font-semibold text-white cta-secondary">Escolher Plano</button>
         </article>
-      </div>
-    </section>
-
-    <section id="garantia" class="mx-auto w-full max-w-7xl px-6 py-16">
-      <div class="card overflow-hidden rounded-[24px] bg-gradient-to-r from-emerald-600/15 to-cyan-500/10 p-8">
-        <div class="grid grid-cols-1 items-center gap-6 lg:grid-cols-2">
-          <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-300">Redução de risco</p>
-            <h2 class="section-title mt-3 text-3xl font-bold text-white">Ativação rápida, operação assistida e cancelamento mensal</h2>
-            <p class="mt-4 text-sm leading-relaxed text-gray-300">Você entra com risco reduzido: onboarding rápido, suporte próximo e liberdade para ajustar ou cancelar conforme a evolução da sua comunidade.</p>
-          </div>
-          <div class="flex flex-col gap-3 sm:flex-row sm:justify-end">
-            <button onclick="falarNoZap('Olá, quero começar com baixo risco e ativar meu plano hoje.');" class="btn-primary rounded-xl px-6 py-3 text-sm font-semibold text-white">COMEÇAR AGORA</button>
-            <a href="#faq" class="btn-secondary rounded-xl px-6 py-3 text-center text-sm font-semibold text-white">TIRAR DÚVIDAS</a>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -602,32 +419,26 @@
       </div>
 
       <div class="space-y-3">
-        <details class="card rounded-2xl p-5">
-          <summary class="cursor-pointer text-base font-semibold text-white">Como funciona a ativação?</summary>
-          <p class="mt-3 text-sm text-gray-300">Após a confirmação do plano, você recebe o acesso e conecta o iMavyAgent ao grupo para iniciar a proteção e automação inteligente.</p>
+        <details class="card p-5">
+          <summary class="cursor-pointer text-base font-semibold text-white">Como faço para ativar o iMavyAgent no meu grupo?</summary>
+          <p class="mt-3 text-sm text-gray-300">Você escolhe um plano, é redirecionado para o WhatsApp e nossa equipe conclui a ativação com você.</p>
         </details>
 
-        <details class="card rounded-2xl p-5">
-          <summary class="cursor-pointer text-base font-semibold text-white">Funciona para comunidades de Marketing Digital e Web3?</summary>
-          <p class="mt-3 text-sm text-gray-300">Sim. O sistema foi desenhado para grupos pagos, mentorias, comunidades de lançamento e projetos cripto com alto risco de scam e desorganização.</p>
+        <details class="card p-5">
+          <summary class="cursor-pointer text-base font-semibold text-white">O sistema funciona 24 horas?</summary>
+          <p class="mt-3 text-sm text-gray-300">Sim. A proteção e automação inteligente operam 24h por dia, todos os dias da semana.</p>
         </details>
 
-        <details class="card rounded-2xl p-5">
-          <summary class="cursor-pointer text-base font-semibold text-white">O sistema realmente opera 24h?</summary>
-          <p class="mt-3 text-sm text-gray-300">Sim. A moderação, filtros e automações permanecem ativos 24 horas por dia, todos os dias da semana.</p>
+        <details class="card p-5">
+          <summary class="cursor-pointer text-base font-semibold text-white">Quais comunidades são ideais para o iMavyAgent?</summary>
+          <p class="mt-3 text-sm text-gray-300">Comunidades de Marketing Digital, projetos Web3, mentorias e grupos pagos com foco em crescimento e autoridade.</p>
         </details>
 
-        <details class="card rounded-2xl p-5">
+        <details class="card p-5">
           <summary class="cursor-pointer text-base font-semibold text-white">Posso mudar de plano depois?</summary>
-          <p class="mt-3 text-sm text-gray-300">Sim. Você pode evoluir de plano conforme sua operação cresce em quantidade de grupos.</p>
+          <p class="mt-3 text-sm text-gray-300">Sim. Você pode evoluir de plano conforme sua operação ganha volume e novos grupos.</p>
         </details>
       </div>
-    </section>
-
-    <section class="mx-auto w-full max-w-7xl px-6 pb-20 pt-4 text-center">
-      <h2 class="section-title text-3xl font-bold text-white md:text-5xl">Pronto para transformar seu grupo em uma operação profissional?</h2>
-      <p class="mx-auto mt-4 max-w-2xl text-gray-300">Ative agora o sistema de proteção e automação inteligente e recupere autoridade, organização e previsibilidade.</p>
-      <button onclick="falarNoZap('Olá, quero ativar o iMavyAgent hoje mesmo.');" class="btn-primary mt-8 rounded-xl px-8 py-3 text-sm font-semibold text-white">QUERO ATIVAR O IMAVYAGENT</button>
     </section>
   </main>
 
@@ -644,15 +455,19 @@
 
   <script>
     function falarNoZap(mensagem) {
-      const numero = "5569992308771";
+      const numero = '5569992308771';
       const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
       window.open(url, '_blank');
     }
 
-    function toggleMenu() {
-      const menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('hidden');
-    }
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle?.addEventListener('click', () => {
+      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!expanded));
+      mobileMenu.classList.toggle('hidden');
+    });
   </script>
 </body>
 </html>
