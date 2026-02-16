@@ -12,9 +12,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <style>
     :root {
-      --bg-primary: #070b14;
-      --bg-secondary: #0c1424;
-      --line: rgba(255, 255, 255, 0.08);
+      --primary: #667eea;
+      --primary-dark: #5568d3;
+      --secondary: #764ba2;
+      --surface: #ffffff;
+      --surface-soft: #f6f8ff;
+      --line: rgba(102, 126, 234, 0.24);
+      --text: #0f172a;
+      --muted: #4b5563;
+      --shadow: 0 12px 34px rgba(15, 23, 42, 0.14);
     }
 
     html {
@@ -24,10 +30,10 @@
     body {
       font-family: 'Inter', sans-serif;
       background:
-        radial-gradient(1000px 600px at 90% -10%, rgba(99, 102, 241, 0.25), transparent 60%),
-        radial-gradient(900px 500px at -10% 25%, rgba(56, 189, 248, 0.15), transparent 60%),
-        linear-gradient(180deg, var(--bg-secondary), var(--bg-primary));
-      color: #e5e7eb;
+        radial-gradient(1000px 600px at 95% -10%, rgba(255, 255, 255, 0.22), transparent 62%),
+        radial-gradient(900px 560px at -15% 28%, rgba(255, 255, 255, 0.14), transparent 62%),
+        linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: var(--text);
     }
 
     .bg-grid {
@@ -36,49 +42,102 @@
       z-index: 0;
       pointer-events: none;
       background-image:
-        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+        linear-gradient(to right, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
       background-size: 52px 52px;
-      mask-image: radial-gradient(circle at center, black 25%, transparent 85%);
+      mask-image: radial-gradient(circle at center, black 24%, transparent 86%);
     }
 
     .glass {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
-      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--line);
       backdrop-filter: blur(10px);
     }
 
     .card {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: linear-gradient(180deg, var(--surface) 0%, var(--surface-soft) 100%);
+      border: 1px solid var(--line);
       border-radius: 20px;
-      box-shadow: 0 16px 40px rgba(2, 6, 23, 0.4);
+      box-shadow: var(--shadow);
     }
 
     .cta-primary {
-      background: linear-gradient(90deg, #2563eb, #4f46e5);
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      color: #ffffff !important;
       transition: all .25s ease;
     }
 
     .cta-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
+      box-shadow: 0 12px 28px rgba(102, 126, 234, 0.4);
     }
 
     .cta-secondary {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: #ffffff;
+      border: 1px solid rgba(85, 104, 211, 0.42);
+      color: var(--primary-dark) !important;
       transition: all .25s ease;
     }
 
     .cta-secondary:hover {
-      background: rgba(255, 255, 255, 0.09);
-      border-color: rgba(255, 255, 255, 0.5);
+      background: #eef2ff;
+      border-color: rgba(85, 104, 211, 0.6);
     }
 
     .section-title {
       letter-spacing: -0.02em;
+    }
+
+    header,
+    #mobile-menu {
+      background: rgba(255, 255, 255, 0.9) !important;
+      border-color: var(--line) !important;
+    }
+
+    header .text-gray-300,
+    header .text-gray-200,
+    #mobile-menu a {
+      color: #334155 !important;
+    }
+
+    header .text-white,
+    #mobile-menu .text-white,
+    footer .text-white {
+      color: var(--text) !important;
+    }
+
+    footer {
+      background: rgba(255, 255, 255, 0.9) !important;
+      border-color: var(--line) !important;
+    }
+
+    footer .text-gray-400 {
+      color: #475569 !important;
+    }
+
+    .card .text-white {
+      color: var(--text) !important;
+    }
+
+    .card .text-gray-200,
+    .card .text-gray-300,
+    .card .text-gray-400,
+    .card summary {
+      color: var(--muted) !important;
+    }
+
+    .card .bg-black\/30,
+    .card .bg-black\/35,
+    .card .bg-black\/40,
+    .card .bg-\[\#0c1220\],
+    .card .bg-white\/5 {
+      background: #edf2ff !important;
+    }
+
+    .card .border-white\/10,
+    .card .border-white\/20 {
+      border-color: rgba(102, 126, 234, 0.25) !important;
     }
   </style>
 </head>
