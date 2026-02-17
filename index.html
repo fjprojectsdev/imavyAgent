@@ -524,19 +524,19 @@
 
           <div class="mt-5 space-y-3 text-sm">
             <div class="rounded-xl border border-white/10 bg-white/5 p-4">
-              <p class="font-semibold text-cyan-300">1) Classificacao por IA de vendas (Groq)</p>
-              <p class="mt-1 text-gray-200">A mensagem entra no fluxo com intents fixas: interested, question, greeting, casual, spam e timewaster.</p>
-              <p class="mt-2 text-emerald-300">Saida padrao: intent + confidence + response + needsHuman.</p>
+              <p class="font-semibold text-cyan-300">1) Atendimento com IA que entende o interesse do contato</p>
+              <p class="mt-1 text-gray-200">Cada mensagem e analisada para identificar o perfil da conversa: se a pessoa quer comprar, esta tirando duvida, so cumprimentou ou nao tem interesse real.</p>
+              <p class="mt-2 text-emerald-300">Com isso, o sistema responde na hora e sinaliza quando vale passar para atendimento humano.</p>
             </div>
             <div class="rounded-xl border border-white/10 bg-white/5 p-4">
-              <p class="font-semibold text-blue-300">2) Persistencia e comando operacional</p>
-              <p class="mt-1 text-gray-200">Cada lead salvo no Supabase com phone, intent, confidence, last_message e conversation_count.</p>
-              <p class="mt-2 text-blue-200">O comando /leads lista os ultimos contatos com intent e nivel de confianca.</p>
+              <p class="font-semibold text-blue-300">2) Registro automatico dos leads e visao rapida da equipe</p>
+              <p class="mt-1 text-gray-200">Todo contato fica salvo automaticamente com telefone, tipo de interesse, nivel de confianca da IA, ultima mensagem e historico de interacoes.</p>
+              <p class="mt-2 text-blue-200">Na pratica, o time enxerga primeiro quem esta mais pronto para avançar, sem revisar conversa por conversa.</p>
             </div>
             <div class="rounded-xl border border-white/10 bg-white/5 p-4">
-              <p class="font-semibold text-violet-300">3) Eventos inteligentes para prioridade de leads</p>
-              <p class="mt-1 text-gray-200">O motor detecta SOCIAL_SPIKE, TOKEN_DOMINANCE e SOCIAL_ONCHAIN_CONFIRM com webhook para dashboard.</p>
-              <p class="mt-2 text-violet-200">Exemplos de regra: pico social >2x baseline e confirmacao onchain com buyIncrease acima de 150%.</p>
+              <p class="font-semibold text-violet-300">3) Alertas inteligentes para priorizar quem esta mais perto de comprar</p>
+              <p class="mt-1 text-gray-200">O motor monitora sinais de aquecimento da audiencia e identifica quando um tema ganha forca acima do normal.</p>
+              <p class="mt-2 text-violet-200">Quando esses sinais se confirmam, o dashboard alerta o time para agir primeiro nos leads com maior chance de conversao.</p>
             </div>
           </div>
         </div>
